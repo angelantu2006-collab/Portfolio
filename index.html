@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #3b82f6;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            scroll-behavior: smooth;
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent);
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        #mobile-menu.active {
+            max-height: 400px;
+            padding-bottom: 1.5rem;
+        }
+
+        /* Form styling */
+        input, textarea {
+            background: #334155 !important;
+            border: 1px solid #475569 !important;
+            color: white !important;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary) !important;
+            outline: none;
+            ring: 2px var(--primary);
+        }
+    </style>
+</head>
+<body class="hero-gradient">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+                PORTFOLIO.
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-toggle" class="md:hidden text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden px-6 bg-slate-900 flex flex-col space-y-4">
+            <a href="#home" class="mobile-link py-2 border-b border-slate-800">Home</a>
+            <a href="#about" class="mobile-link py-2 border-b border-slate-800">About</a>
+            <a href="#projects" class="mobile-link py-2 border-b border-slate-800">Projects</a>
+            <a href="#contact" class="mobile-link py-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate-fade-in">
+                <h2 class="text-black-400 font-semibold tracking-wide uppercase mb-4">Hello, I'm Angel Antony</h2>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Creative <span class="text-slate-400 italic">Web Developer</span> & Designer.
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-lg">
+                    I build high-performance web applications with a focus on modern user experiences and scalable architecture.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition flex items-center">
+                        View Work <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                    <a href="#contact" class="border border-slate-700 hover:border-slate-500 px-8 py-3 rounded-full font-medium transition">
+                        Let's Talk
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:flex justify-center">
+                <div class="relative w-80 h-80">
+                    <!-- Geometric Background shapes -->
+                    <div class="absolute -top-4 -left-4 w-full h-full border-2 border-blue-500/30 rounded-2xl rotate-6"></div>
+                    <div class="absolute inset-0 bg-slate-800 rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
+                        <!-- Replace with your actual photo URL -->
+                        <i class="fas fa-user-circle text-9xl text-slate-700"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">About Me</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        With over 5 years of experience in the digital space, I specialize in bridging the gap between design and technology. I love solving complex problems with clean, efficient code.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">JavaScript (ES6+)</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">React / Vue</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Tailwind CSS</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Node.js</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">UI/UX Design</span>
+                        <span class="skill-tag px-4 py-2 rounded-lg text-sm">Git & CI/CD</span>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Web Development</h4>
+                                <p class="text-sm text-slate-500">Fast and responsive layouts</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Product Design</h4>
+                                <p class="text-sm text-slate-500">User-centric interfaces</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-400">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Mobile Solutions</h4>
+                                <p class="text-sm text-slate-500">Optimized for all screens</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h3 class="text-3xl font-bold mb-2">Featured Projects</h3>
+                    <p class="text-slate-400">Selection of my favorite work.</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+                    <div class="h-48 bg-slate-700 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-5xl text-slate-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">E-Commerce Platform</h4>
+                        <p class="text-slate-400 text-sm mb-4">A full-stack commerce solution with Stripe integration and dashboard.</p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs font-mono text-blue-400">Next.js</span>
+                            <span class="text-xs font-mono text-blue-400">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+                    <div class="h-48 bg-slate-700 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-5xl text-slate-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">SaaS Dashboard</h4>
+                        <p class="text-slate-400 text-sm mb-4">Real-time analytics dashboard with interactive charts and data sets.</p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs font-mono text-blue-400">React</span>
+                            <span class="text-xs font-mono text-blue-400">D3.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden border border-slate-700">
+                    <div class="h-48 bg-slate-700 flex items-center justify-center">
+                        <i class="fas fa-cloud-sun text-5xl text-slate-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Weather App</h4>
+                        <p class="text-slate-400 text-sm mb-4">A minimalist weather application using the OpenWeather API.</p>
+                        <div class="flex space-x-3">
+                            <span class="text-xs font-mono text-blue-400">JavaScript</span>
+                            <span class="text-xs font-mono text-blue-400">API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-4">Get In Touch</h3>
+            <p class="text-slate-400 mb-12">I'm currently looking for new opportunities. My inbox is always open.</p>
+            
+            <form id="contact-form" class="space-y-4 text-left">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg" required>
+                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg" required>
+                </div>
+                <input type="text" placeholder="Subject" class="w-full px-4 py-3 rounded-lg" required>
+                <textarea rows="5" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg" required></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition">
+                    Send Message
+                </button>
+            </form>
+
+            <div id="form-status" class="hidden mt-6 p-4 rounded-lg bg-green-500/20 text-green-400">
+                Thanks! Your message has been sent successfully.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:row items-center justify-between">
+            <div class="text-slate-500 text-sm mb-6 md:mb-0">
+                &copy; 2024 My Portfolio. All rights reserved.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Contact Form Logic
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulation of form submission
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                contactForm.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+                
+                formStatus.classList.remove('hidden');
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        });
+
+        // Scroll Reveal Effect
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => {
+                const top = window.scrollY;
+                const offset = sec.offsetTop - 150;
+                const height = sec.offsetHeight;
+                
+                if (top >= offset && top < offset + height) {
+                    sec.classList.add('opacity-100');
+                }
+            });
+        });
+
+        // Smooth Scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
